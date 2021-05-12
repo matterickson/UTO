@@ -55,13 +55,14 @@ end
 --[[ Changes the current gamestate
     gamestate_name (string),
     Takes additional exit and enter params tables (that are fed into the enter/exit function calls of the gamestate)
+    Initial gamestate (if any) exit function is called
+    Current gamestate gets changed
+    New gamestate enter function is called
 ]]
 function Manager.setState(manager, gamestate_name, enter_params, exit_params)
 
     -- Check gamestate exists
     if manager.gamestates[gamestate_name] then
-        local enter_params = enter_params or {}
-        local exit_params = exit_params or {}
 
         -- Exit current gamestate
         if manager.currentGamestate then
