@@ -1,6 +1,6 @@
 local Manager = {}
 
-function Manager.new_manager()
+function Manager.newManager()
     local manager = {}
 
     -- Give functions

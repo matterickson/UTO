@@ -1,10 +1,19 @@
 -- Requires
 local Gamestate_manager = require 'src.gamestate_manager'
+local Game = require 'src.gamestates.game'
+local Menu = require 'src.gamestates.menu'
 
 function love.load()
 
     -- Creates a new gamestate manager
-    manager = Gamestate_manager.new_manager()
+    manager = Gamestate_manager.newManager()
+
+    -- Add gamestates
+    manager:addState(Game.newGameState())
+    manager:addState(Menu.newMenuState())
+
+    -- Set state
+    manager:setState('menu')
 end
 
 function love.update(dt)
