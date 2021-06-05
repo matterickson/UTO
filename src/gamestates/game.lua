@@ -1,5 +1,10 @@
 local Game = {}
 player = require('src/gameobjects/player')
+floor = require('src/gameobjects/platforms/floor')
+gravity = require('src/world/gravity')
+
+gameobjects = {}
+floors = {}
 
 function Game.newGameState()
     local state = {}
@@ -13,19 +18,24 @@ function Game.newGameState()
     state.enter = Game.enter
     state.exit = Game.exit
 
-    player.draw(state)
+    gameobjects['player'] = player
+    table.insert(floors, floor);
 
     return state
 end
 
 function Game.update(state, dt)
-end
+    gravity.update(dt, gameobjects, floors)
 
+    for key,object in pairs(gameobjects) do
+        object.update(dt);
+    end
+end
 
 function Game.draw(state)
 
-    -- Temporary print
-    love.graphics.print('GAME', 100, 100)
+    player.draw(state);
+    floor.draw(state);
 end
 
 -- On entering the gamestate
