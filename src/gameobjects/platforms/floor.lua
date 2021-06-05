@@ -11,7 +11,6 @@ end
 
 function floor.draw(state)
 
-    -- Temporary print
     love.graphics.rectangle('fill', floor.x, floor.y, floor.width, floor.height)
 end
 

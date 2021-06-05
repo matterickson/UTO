@@ -1,10 +1,10 @@
-local Game = {}
+HC = require 'HC'
 player = require('src/gameobjects/player')
-floor = require('src/gameobjects/platforms/floor')
-gravity = require('src/world/gravity')
+
+local Game = {}
 
 gameobjects = {}
-floors = {}
+local text = {}
 
 function Game.newGameState()
     local state = {}
@@ -18,24 +18,28 @@ function Game.newGameState()
     state.enter = Game.enter
     state.exit = Game.exit
 
+    rect = HC.rectangle(200,400,400,20)
+    player.load()
     gameobjects['player'] = player
-    table.insert(floors, floor);
+
+    text[0]='no collision yet'
 
     return state
 end
 
 function Game.update(state, dt)
-    gravity.update(dt, gameobjects, floors)
-
     for key,object in pairs(gameobjects) do
         object.update(dt);
     end
+
 end
 
 function Game.draw(state)
+    love.graphics.setColor(255,255,255,255)
+    love.graphics.print(text[0], 10, 15)
 
     player.draw(state);
-    floor.draw(state);
+    rect:draw('fill')
 end
 
 -- On entering the gamestate
