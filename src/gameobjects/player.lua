@@ -67,7 +67,7 @@ end
 function player.draw(state)
 
     -- Temporary print
-    love.graphics.print('PLAYER ', player.x, player.y)
+    love.graphics.draw(player.sprite, Player.x, Player.y)
 
 end
 
