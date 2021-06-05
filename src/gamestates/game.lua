@@ -1,4 +1,5 @@
 local Game = {}
+player = require('src/gameobjects/player')
 
 function Game.newGameState()
     local state = {}
@@ -11,6 +12,8 @@ function Game.newGameState()
     state.draw = Game.draw
     state.enter = Game.enter
     state.exit = Game.exit
+
+    player.draw(state)
 
     return state
 end

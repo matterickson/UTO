@@ -13,7 +13,7 @@ function love.load()
     manager:addState(Menu.newMenuState())
 
     -- Set state
-    manager:setState('menu')
+    manager:setState('game')
 end
 
 function love.update(dt)
