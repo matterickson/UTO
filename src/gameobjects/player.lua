@@ -63,7 +63,7 @@ function player.update(dt)
     player.x = player.x + (dt * player.xspeed)
     player.y = player.y + (dt * player.yspeed)
 
-    player.hitbox:moveTo(player.x, player.y)
+    player.hitbox:moveTo(player.x + (player.width/2), player.y + (player.height/2))
 end
 
 function player.draw(state)

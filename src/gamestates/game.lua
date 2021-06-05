@@ -4,7 +4,6 @@ player = require('src/gameobjects/player')
 local Game = {}
 
 gameobjects = {}
-local text = {}
 
 function Game.newGameState()
     local state = {}
@@ -22,22 +21,17 @@ function Game.newGameState()
     player.load()
     gameobjects['player'] = player
 
-    text[0]='no collision yet'
-
     return state
 end
 
 function Game.update(state, dt)
+
     for key,object in pairs(gameobjects) do
         object.update(dt);
     end
-
 end
 
 function Game.draw(state)
-    love.graphics.setColor(255,255,255,255)
-    love.graphics.print(text[0], 10, 15)
-
     player.draw(state);
     rect:draw('fill')
 end
