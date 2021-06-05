@@ -5,6 +5,7 @@ Player.y = 200
 Player.movingLeft = false
 Player.movingright = false
 Player.speed = 50
+Player.sprite = love.graphics.newImage('media/character_idle.png')
 
 function Player.update(dt)
     if Player.movingleft then
@@ -18,7 +19,7 @@ end
 function Player.draw(state)
 
     -- Temporary print
-    love.graphics.print('PLAYER ', Player.x, Player.y)
+    love.graphics.draw(Player.sprite, Player.x, Player.y)
 
 end
 
