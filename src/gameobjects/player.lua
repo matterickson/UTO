@@ -4,6 +4,8 @@ gravity = require('src/world/gravity')
 local player = {}
 
 function player.load()
+    player.sprite = love.graphics.newImage("media/character_idle.png")
+
     player.x = 200
     player.y = 200
     player.width = 16
@@ -67,7 +69,7 @@ end
 function player.draw(state)
 
     -- Temporary print
-    love.graphics.draw(player.sprite, Player.x, Player.y)
+    love.graphics.draw(player.sprite, player.x, player.y)
 
 end
 
